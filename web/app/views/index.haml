@@ -8,11 +8,13 @@
     -# Load all feature JS files
     = render_partial 'web/app/views/load_file'
 
+    %link(href="styles/shell.css" media="screen" rel="stylesheet" type="text/css")
+
   %body
     %div#app_container.container
-      = render_page "converter/conversionForm"
+      = render_page "paroles/welcomePage"
 
   :javascript
     $(document).ready(function(){
-      example.converter.start();      
+      paroles.start();
     });

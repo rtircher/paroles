@@ -1,7 +1,6 @@
-example ?= {}
-example.converter ?= {}
+paroles ?= {}
 
-example.converter.controller = ({views, changePage, ajax}) ->
+paroles.controller = ({views, changePage, ajax}) ->
   currencies = ['USD', 'AUD', 'GBP', 'INR']
   currencyRate =
     USD: 1
