@@ -3,7 +3,7 @@ calatrava.pageView ?= {}
 calatrava.pageView.welcomePage = ->
 
   #TODO: refactor out
-  $page = $('#welcomePage')
+  $page = $('#welcome-page')
   $p = (sel)-> $(sel, $page)
 
   # renderCurrencyDropdown = ($select, currencies)->

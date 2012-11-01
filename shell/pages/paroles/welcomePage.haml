@@ -1,3 +1,8 @@
-%div#welcomePage.page
+%div#welcome-page.page
 
-  %h1.welcome-title Welcomes to paroles
+  %h1.welcome-title Welcome to paroles
+
+  %form#create-wall
+    %label(for="wall-name") Create a new quote wall
+    %input(name="wall-name" placeholder="wall name")
+    %input(type="submit" value="Create")
