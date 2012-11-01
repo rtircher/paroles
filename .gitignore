@@ -3,3 +3,4 @@ build/
 web/public/
 web/apache/
 web/app/views/load_file.haml
+node_modules/
