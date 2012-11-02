@@ -4,3 +4,4 @@ web/public/
 web/apache/
 web/app/views/load_file.haml
 node_modules/
+ios/Pods/Pods.xcodeproj/project.pbxproj
