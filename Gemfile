@@ -1,4 +1,4 @@
 source :rubygems
 
 gem "rake"
-gem "calatrava"
+gem "calatrava", :path => "../calatrava"
