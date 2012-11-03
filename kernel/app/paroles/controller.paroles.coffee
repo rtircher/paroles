@@ -15,28 +15,14 @@ paroles.controller = ({views, changePage, ajax, urls}) ->
       views.conversionForm.render
         out_amount: (Math.round(inAmount * (outRate / inRate) * 100)) / 100
 
-  views.welcomePage.bind 'create-wall', ({wallName}) ->
-    paroles.log "creating wall: #{wallName}"
+  views.welcomePage.bind 'create-wall', (params) ->
+    paroles.log "creating wall: #{params}"
     ajax
       url:    urls.walls
       method: 'POST'
-      body:
-        name: wallName
-      success: -> paroles.log "Wall created"
-      failure: -> paroles.log "Wall creation failure"
-
-
-  # if options.contentType?
-  #   options.customHeaders ||= {}
-  #   options.customHeaders['Content-Type'] = options.contentType
-  # calatrava.bridge.requests.issue(
-  #   options.url,
-  #   options.method,
-  #   options.body,
-  #   options.success,
-  #   options.failure,
-  #   options.customHeaders
-  # )
+      body: params
+      success: () -> paroles.log "Wall created"
+      failure: () -> paroles.log "Wall creation failure"
 
 
     # views.conversionForm.bind 'selectedInCurrency', ->

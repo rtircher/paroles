@@ -15,7 +15,7 @@ calatrava.pageView.welcomePage = ->
 
   createWallHandler = (handler) ->
     (e) ->
-      handler wallName: e.target["wall-name"].value
+      handler $(e.target).serialize()
       e.preventDefault()
 
   bind: (event, handler) ->
