@@ -1,6 +1,6 @@
 paroles ?= {}
 
-paroles.controller = ({views, changePage, ajax}) ->
+paroles.controller = ({views, changePage, ajax, urls}) ->
 
   currencyDropdownViewMessage = (selectedCurrency, unselectableCurrency) ->
     _.map currencies, (c) ->
@@ -15,8 +15,15 @@ paroles.controller = ({views, changePage, ajax}) ->
       views.conversionForm.render
         out_amount: (Math.round(inAmount * (outRate / inRate) * 100)) / 100
 
-  views.welcomePage.bind 'create-wall', () ->
-    ajax url: "http://"
+  views.welcomePage.bind 'create-wall', ({wallName}) ->
+    paroles.log "creating wall: #{wallName}"
+    ajax
+      url:    urls.walls
+      method: 'POST'
+      body:
+        name: wallName
+      success: -> paroles.log "Wall created"
+      failure: -> paroles.log "Wall creation failure"
 
 
   # if options.contentType?

@@ -1,7 +1,7 @@
 calatrava.pageView ?= {}
 
 calatrava.pageView.welcomePage = ->
-  $page = paroles.pages.welcomePage
+  $page = paroles.pages["welcome-page"]
 
   # renderCurrencyDropdown = ($select, currencies)->
   #   $select.empty().html ich.currencyDropdownTmpl
@@ -13,10 +13,15 @@ calatrava.pageView.welcomePage = ->
   #     when 'outCurrencies' then renderCurrencyDropdown($p('#out_currency'), data)
   #     else $p("#" + key).val(data)
 
+  createWallHandler = (handler) ->
+    (e) ->
+      handler wallName: e.target["wall-name"].value
+      e.preventDefault()
+
   bind: (event, handler) ->
     paroles.log "binding event: #{event}"
     switch event
-      when 'create-wall' then $page("#create-wall").off('submit').on 'submit', handler
+      when 'create-wall' then $page("#create-wall").off('submit').on 'submit', createWallHandler(handler)
       else $page("#" + event).off('click').on 'click', handler
 
   render: (message) ->
