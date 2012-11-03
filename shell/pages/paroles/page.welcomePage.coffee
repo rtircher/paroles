@@ -13,21 +13,19 @@ calatrava.pageView.welcomePage = ->
   #     when 'outCurrencies' then renderCurrencyDropdown($p('#out_currency'), data)
   #     else $p("#" + key).val(data)
 
-  # bind: (event, handler) ->
-  #   console.log "event: #{event}"
-  #   switch event
-  #     when 'selectedInCurrency' then $p("#in_currency").off('change').on 'change', handler
-  #     when 'selectedOutCurrency' then $p("#out_currency").off('change').on 'change', handler
-  #     else
-  #       $p("#" + event).off('click').on 'click', handler
+  bind: (event, handler) ->
+    paroles.log "binding event: #{event}"
+    switch event
+      when 'create-wall' then $page("#create-wall").off('submit').on 'submit', handler
+      else $page("#" + event).off('click').on 'click', handler
 
-  # render: (message) ->
-  #   console.log('rendering...', message)
-  #   renderSection(section, data) for own section,data of message
+  render: (message) ->
+    paroles.log('rendering...', message)
+  # renderSection(section, data) for own section,data of message
 
   # get: (field) ->
-  #   console.log('getting...', field)
+  #   paroles.log('getting...', field)
   #   $page.find("#" + field).val()
 
-  # show: -> console.log('showing...')
-  # hide: -> console.log('hiding...')
+  show: -> paroles.log('showing...')
+  hide: -> paroles.log('hiding...')
